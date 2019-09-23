@@ -1,0 +1,58 @@
+$margin-left-leftside: -60px;
+$margin-right-leftside: 0px;
+$margin-right-rightside: 10px;
+$margin-left-rightside: 0px;
+mat-toolbar {
+  height: 7%;
+  border-bottom-color: 6px solid red;
+}
+mat-sidenav-container {
+  height: 93%;
+  background-color: whitesmoke;
+}
+
+mat-sidenav {
+  border-inline-color: black;
+  background-color: whitesmoke;
+  width: 200px;
+}
+.menuicon {
+  margin-right: $margin-right-leftside;
+}
+.toolbarimage {
+  margin-left: $margin-left-leftside;
+  margin-right: $margin-right-leftside;
+}
+
+.toolbartext {
+  margin-left: $margin-left-leftside;
+  margin-right: $margin-right-leftside;
+}
+
+.searchtextbox {
+  background-color: whitesmoke;
+  width: 40%;
+}
+
+.refreshbutton {
+  margin-right: $margin-right-rightside;
+}
+.view_agenda {
+  margin-right: $margin-right-rightside;
+}
+.settingicon {
+  margin-right: $margin-right-rightside;
+}
+.appicon {
+  padding: 10px;
+}
+
+.profileimage img {
+  border-radius: 50%;
+}
+
+.mat {
+  background-color: blue;
+  height: 10%;
+  width: 30%;
+}

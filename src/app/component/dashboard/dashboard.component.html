@@ -1,0 +1,45 @@
+<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
+  <mat-icon
+    class="menuicon"
+    aria-hidden="false"
+    aria-label="Example home icon"
+    (click)="opened = !opened"
+    >menu
+  </mat-icon>
+  <div class="toolbarimage">
+    <img src="../../../assets/image/download.png" height="42" width="42" />
+  </div>
+  <div class="toolbartext">
+    <h1>Notes</h1>
+  </div>
+
+  <mat-form-field class="searchtextbox">
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput width="50px" placeholder="Search" />
+    <mat-icon matSuffix>close</mat-icon>
+  </mat-form-field>
+
+  <mat-icon class="refreshbutton" matSuffix>refresh</mat-icon>
+  <mat-icon class="view_agenda" matSuffix>view_agenda</mat-icon>
+  <mat-icon class="settingicon" matSuffix>settings_applications</mat-icon>
+  <mat-icon class="appicon" matSuffix>apps</mat-icon>
+  <div class="profileimage" [matMenuTriggerFor]="menu">
+    <img src="../../../assets/image/1-nature.jpg" height="40" width="40" />
+  </div>
+  <mat-menu #menu="matMenu" xPosition="before" yPosition="below" class="mat">
+    <div class="profile menu">
+      <span>
+        <div class="profile picture" height="100%" width="50%">
+          <img src="../../../assets/image/1-nature.jpg" />
+        </div>
+        <div>
+          profile details
+        </div>
+      </span>
+    </div>
+  </mat-menu>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" [(opened)]="opened">sidenav</mat-sidenav>
+  <mat-sidenav-content>Main</mat-sidenav-content>
+</mat-sidenav-container>

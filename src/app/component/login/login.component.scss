@@ -1,0 +1,91 @@
+$stacks: white;
+$border: 1px solid black;
+.container {
+  border: 1px solid blue;
+  margin-left: 50px;
+  height: 30em;
+  width: 60%;
+
+  // background-color: aqua;
+}
+.loginbutton {
+  display: flex;
+  color: rgb(6, 248, 248);
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.loginbutton button {
+  margin-left: 60%;
+  color: black;
+}
+.textdivsion mat-form-field {
+  width: 150%;
+}
+.fundootitile {
+  margin: 0px 0px 10px 0px;
+}
+#colorofF {
+  color: yellow;
+}
+#colorofU {
+  color: red;
+}
+#colorofF {
+  color: blue;
+}
+#colorofO {
+  color: yellow;
+}
+#colorofN {
+  color: red;
+}
+#colorofT {
+  color: blue;
+}
+#colorofE {
+  color: yellow;
+}
+#colorofS {
+  color: red;
+}
+// .passwordfield mat-form-field {
+//   width: 60%;
+// }
+
+// .login_matcard {
+//   border: $border;
+//   background-color: $stacks;
+//   height: 300%;
+//   width: 50%;
+// }
+// input[type="text"] {
+//   width: 100%;
+//   padding: 12px 20px;
+//   // margin: 8px 0;
+//   border-radius: 25px;
+
+//   box-sizing: border-box;
+// }
+// input[type="password"] {
+//   width: 100%;
+//   padding: 12px 20px;
+//   // margin: 8px 0;
+//   box-sizing: border-box;
+// }
+
+// .mainDiv {
+//   display: flex;
+// }
+
+// #main_button {
+//   background-color: blue;
+//   margin-block-end: 25%;
+// }
+// .button1 {
+//   justify-content: flex-end;
+//   align-items: flex-end;
+// }
+// .routerregister {
+//   justify-content: flex-end;
+//   align-items: flex-end;
+// }

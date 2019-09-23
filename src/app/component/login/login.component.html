@@ -1,0 +1,44 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <h3 class="fundootitile" margin>
+    <span>
+      <span id="colorofF">F</span>
+      <span id="colorofU">U</span>
+      <span id="colorofF">N</span>
+      <span id="colorofD">D</span>
+      <span id="colorofO">O</span>
+      <span id="colorofO">O</span>
+      <span id="colorofN">N</span>
+      <span id="colorofO">O</span>
+      <span id="colorofT">T</span>
+      <span id="colorofE">E</span>
+      <span id="colorofS">S</span>
+    </span>
+  </h3>
+  <div class="textdivsion" fxLayout="column">
+    <mat-form-field appearance="outline">
+      <mat-label>UserName</mat-label>
+      <input
+        [(ngModel)]="login.username"
+        matInput
+        type="text"
+        placeholder="username"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        [(ngModel)]="login.password"
+        matInput
+        type="password"
+        placeholder="Password"
+      />
+    </mat-form-field>
+  </div>
+  <div class="loginbutton" fxLayout="row" fxLayoutAlign="space-between center">
+    <a routerLink="/forgotpassword">forgotPassword? </a>
+    <button mat-button (click)="onclick()">Login</button>
+  </div>
+
+  <p>Doesnot have an account? <a routerLink="/register">register</a></p>
+</div>
