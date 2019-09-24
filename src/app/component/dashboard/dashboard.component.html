@@ -24,16 +24,22 @@
   <mat-icon class="settingicon" matSuffix>settings_applications</mat-icon>
   <mat-icon class="appicon" matSuffix>apps</mat-icon>
   <div class="profileimage" [matMenuTriggerFor]="menu">
-    <img src="../../../assets/image/1-nature.jpg" height="40" width="40" />
+    <img
+      src="https://fundoo-image.s3.ap-south-1.amazonaws.com/{{ image }}"
+      height="40"
+      width="40"
+    />
   </div>
   <mat-menu #menu="matMenu" xPosition="before" yPosition="below" class="mat">
     <div class="profile menu">
       <span>
         <div class="profile picture" height="100%" width="50%">
-          <img src="../../../assets/image/1-nature.jpg" />
+          <img
+            src="https://fundoo-image.s3.ap-south-1.amazonaws.com/{{ image }}"
+          />
         </div>
         <div>
-          profile details
+          <button (click)="logout()" mat-button>logout</button>
         </div>
       </span>
     </div>

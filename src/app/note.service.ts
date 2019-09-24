@@ -18,8 +18,20 @@ export class NoteService {
   forgotpassword(data): Observable<any> {
     return this.http.post("http://127.0.0.1:8000/forgot", data);
   }
-  resetpassword(data): Observable<any> {
-    let token = localStorage.getItem("token");
-    return this.http.post("http://127.0.0.1:8000/reset/token", data);
+  resetpassword(data, token): Observable<any> {
+    return this.http.post(
+      "http://127.0.0.1:8000/resetpassword/token",
+      data,
+      token
+    );
   }
+  getimage(): Observable<any> {
+    return this.http.get("http://127.0.0.1:8000/getprofilepic");
+  }
+  logout(): Observable<any> {
+    return this.http.get("http://127.0.0.1:8000/logout");
+  }
+  // profileimage(): Observable<any> {
+  //   return this.http.post("http://127.0.0.1:8000/upload");
+  // }
 }
