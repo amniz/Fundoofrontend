@@ -1,0 +1,39 @@
+<div fxLayout="row" fxLayoutAlign="space-around center">
+  <mat-card
+    class="mat-class"
+    *ngFor="let mynote of myNote"
+    [ngStyle]="{ 'background-color': mynote.color }"
+  >
+    <mat-card-header (click)="titlechange(mynote.id)"
+      >{{ mynote.title }}
+    </mat-card-header>
+    <mat-card-content>{{ mynote.note }}</mat-card-content>
+    <mat-card-footer>
+      <mat-icon [matMenuTriggerFor]="reminderMenu">add_alert</mat-icon>
+      <mat-icon>person_add</mat-icon>
+      <mat-icon [matMenuTriggerFor]="colorMenu">color_lens</mat-icon>
+      <mat-icon>image</mat-icon>
+      <mat-icon>archive</mat-icon>
+      <mat-icon>more_vert</mat-icon>
+    </mat-card-footer>
+    <mat-menu #reminderMenu>
+      <p>hai</p>
+    </mat-menu>
+    <mat-menu #colorMenu xPosition="after" yPosition="above">
+      <span (click)="backgroundcolor(mynote.id, 'blue')" class="dot1"></span>
+      <span (click)="backgroundcolor(mynote.id, 'red')" class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <br />
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <br />
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </mat-menu>
+  </mat-card>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NoteService } from "src/app/note.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-dashboard",
@@ -10,24 +11,28 @@ export class DashboardComponent implements OnInit {
   opened = false;
   profileview = false;
   image;
-  constructor(private profilepic: NoteService) {
+  constructor(private noteservice: NoteService, private router: Router) {
     this.profilepicgett();
   }
 
   profilepicgett() {
-    this.profilepic.getimage().subscribe(
+    this.noteservice.getimage().subscribe(
       response => {
         console.log(response["id"]);
         this.image = response["id"];
         console.log("image", this.image);
-        alert("profile picture uploaded");
+        // alert("profile picture uploaded");
       },
       error => {
-        alert("something went wrong");
+        // alert("something went wrong");
       }
     );
   }
 
   ngOnInit() {}
-  onlick() {}
+  logout() {
+    localStorage.removeItem("token");
+    this.noteservice.logout();
+    this.router.navigate([""]);
+  }
 }

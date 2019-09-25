@@ -31,6 +31,13 @@ export class NoteService {
   logout(): Observable<any> {
     return this.http.get("http://127.0.0.1:8000/logout");
   }
+
+  getnotes(): Observable<any> {
+    return this.http.get("http://127.0.0.1:8000/Note");
+  }
+  changecolor(id, data): Observable<any> {
+    return this.http.put("http://127.0.0.1:8000/Note/" + id, data);
+  }
   // profileimage(): Observable<any> {
   //   return this.http.post("http://127.0.0.1:8000/upload");
   // }

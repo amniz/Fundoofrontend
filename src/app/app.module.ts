@@ -28,6 +28,8 @@ import { MatCardModule } from "@angular/material/card";
 import { AuthGuard } from "./auth.guard";
 import { ForgotpasswordComponent } from "./component/forgotpassword/forgotpassword.component";
 import { ResetpasswordComponent } from "./component/resetpassword/resetpassword.component";
+import { NoteComponent } from "./component/note/note.component";
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { ResetpasswordComponent } from "./component/resetpassword/resetpassword.
     RegisterComponent,
     DashboardComponent,
     ForgotpasswordComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    NoteComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { ResetpasswordComponent } from "./component/resetpassword/resetpassword.
     MatGridListModule,
     CommonModule,
     MatMenuModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [NoteService, AuthGuard],
   bootstrap: [AppComponent]
