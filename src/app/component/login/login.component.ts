@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   onclick() {
     this.loginservice.loginUser(this.login).subscribe(
       response => {
-        alert(response);
         localStorage.setItem("token", response[0]);
         this.router.navigate(["/dashboard"]);
       },

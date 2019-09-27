@@ -1,23 +1,72 @@
-<div fxLayout="row" fxLayoutAlign="space-around center">
+<div *ngIf="expansion" (click)="myexpand()">
+  <mat-card fxLayout="row" fxLayoutAlign="space-around end" class="clickselect">
+    <mat-panel-description>
+      Take a Note ....
+    </mat-panel-description>
+    <mat-icon>
+      check_box
+    </mat-icon>
+    <mat-icon>
+      brush
+    </mat-icon>
+
+    <mat-icon>
+      image
+    </mat-icon>
+  </mat-card>
+</div>
+
+<mat-card class="onExpansion" *ngIf="!expansion" fxLayout="column">
+  <mat-form-field floatLabel="never">
+    <mat-label>title</mat-label>
+    <input matInput />
+  </mat-form-field>
+  <mat-form-field floatLabel="never">
+    <mat-label>Take a note....</mat-label>
+    <input matInput />
+  </mat-form-field>
+  <mat-card-footer fxLayout="row" fxLayoutAlign="space-around end">
+    <mat-icon
+      aria-label="Button that displays a tooltip when focused or hovered over"
+    >
+      add_alert</mat-icon
+    >
+    <mat-icon>person_add</mat-icon>
+    <mat-icon>color_lens</mat-icon>
+    <mat-icon>image</mat-icon>
+    <mat-icon>archive</mat-icon>
+    <mat-icon>more_vert</mat-icon>
+    <button mat-button (click)="mycollapse()">close</button>
+  </mat-card-footer>
+</mat-card>
+
+<div fxLayout="row" fxLayoutAlign="space-around end">
   <mat-card
     class="mat-class"
     *ngFor="let mynote of myNote"
     [ngStyle]="{ 'background-color': mynote.color }"
+    (click)="opendialog({{mynote.id}})"
   >
     <mat-card-header (click)="titlechange(mynote.id)"
       >{{ mynote.title }}
     </mat-card-header>
     <mat-card-content>{{ mynote.note }}</mat-card-content>
-    <mat-card-footer>
-      <mat-icon [matMenuTriggerFor]="reminderMenu">add_alert</mat-icon>
+    <mat-card-content></mat-card-content>
+    <mat-card-footer fxLayout="row" fxLayoutAlign="space-around end">
+      <mat-icon
+        aria-label="Button that displays a tooltip when focused or hovered over"
+        [matMenuTriggerFor]="reminderMenu"
+        >add_alert</mat-icon
+      >
       <mat-icon>person_add</mat-icon>
       <mat-icon [matMenuTriggerFor]="colorMenu">color_lens</mat-icon>
       <mat-icon>image</mat-icon>
       <mat-icon>archive</mat-icon>
       <mat-icon>more_vert</mat-icon>
     </mat-card-footer>
+
     <mat-menu #reminderMenu>
-      <p>hai</p>
+      <p>Today 8:00 am</p>
     </mat-menu>
     <mat-menu #colorMenu xPosition="after" yPosition="above">
       <span (click)="backgroundcolor(mynote.id, 'blue')" class="dot1"></span>

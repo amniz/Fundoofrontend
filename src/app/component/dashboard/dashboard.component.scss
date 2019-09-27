@@ -33,6 +33,9 @@ mat-sidenav {
   background-color: whitesmoke;
   width: 40%;
 }
+.searchtextbox input matInput {
+  background-color: whitesmoke;
+}
 
 .refreshbutton {
   margin-right: $margin-right-rightside;
@@ -55,4 +58,7 @@ mat-sidenav {
   background-color: blue;
   height: 10%;
   width: 30%;
+}
+::ng-deep .mat-form-field-underline {
+  display: none;
 }

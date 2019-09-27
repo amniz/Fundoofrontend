@@ -14,7 +14,7 @@ import {
   MatSidenavModule
 } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-
+import { Component } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { MatButtonModule } from "@angular/material/button";
 import { RouterModule } from "@angular/router";
@@ -30,7 +30,8 @@ import { ForgotpasswordComponent } from "./component/forgotpassword/forgotpasswo
 import { ResetpasswordComponent } from "./component/resetpassword/resetpassword.component";
 import { NoteComponent } from "./component/note/note.component";
 import { MatDialogModule } from "@angular/material/dialog";
-
+import { MatExpansionModule } from "@angular/material/expansion";
+import { MydialogueComponent } from './component/mydialogue/mydialogue.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,8 +40,10 @@ import { MatDialogModule } from "@angular/material/dialog";
     DashboardComponent,
     ForgotpasswordComponent,
     ResetpasswordComponent,
-    NoteComponent
+    NoteComponent,
+    MydialogueComponent
   ],
+  entryComponents: [MydialogueComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -60,7 +63,8 @@ import { MatDialogModule } from "@angular/material/dialog";
     CommonModule,
     MatMenuModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
   ],
   providers: [NoteService, AuthGuard],
   bootstrap: [AppComponent]
