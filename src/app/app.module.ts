@@ -31,7 +31,14 @@ import { ResetpasswordComponent } from "./component/resetpassword/resetpassword.
 import { NoteComponent } from "./component/note/note.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatExpansionModule } from "@angular/material/expansion";
-import { MydialogueComponent } from './component/mydialogue/mydialogue.component';
+import { MydialogueComponent } from "./component/mydialogue/mydialogue.component";
+import { ReminderComponent } from "./component/reminder/reminder.component";
+import { ExpansionboxComponent } from "./component/expansionbox/expansionbox.component";
+import { TrashComponent } from "./component/trash/trash.component";
+import { ArchieveComponent } from "./component/archieve/archieve.component";
+import { LabelComponent } from "./component/label/label.component";
+import { MatDividerModule } from "@angular/material/divider";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +48,12 @@ import { MydialogueComponent } from './component/mydialogue/mydialogue.component
     ForgotpasswordComponent,
     ResetpasswordComponent,
     NoteComponent,
-    MydialogueComponent
+    MydialogueComponent,
+    ReminderComponent,
+    ExpansionboxComponent,
+    TrashComponent,
+    ArchieveComponent,
+    LabelComponent
   ],
   entryComponents: [MydialogueComponent],
   imports: [
@@ -51,6 +63,7 @@ import { MydialogueComponent } from './component/mydialogue/mydialogue.component
     BrowserAnimationsModule,
     MatFormFieldModule,
     FormsModule,
+    MatDividerModule,
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,

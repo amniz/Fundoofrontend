@@ -7,20 +7,38 @@ import { DashboardComponent } from "./component/dashboard/dashboard.component";
 import { AuthGuard } from "./auth.guard";
 import { ForgotpasswordComponent } from "./component/forgotpassword/forgotpassword.component";
 import { ResetpasswordComponent } from "./component/resetpassword/resetpassword.component";
-
+import { ReminderComponent } from "./component/reminder/reminder.component";
+import { TrashComponent } from "./component/trash/trash.component";
+import { ArchieveComponent } from "./component/archieve/archieve.component";
+import { LabelComponent } from "./component/label/label.component";
+import { NoteComponent } from './component/note/note.component';
 const routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   {
     path: "dashboard",
     component: DashboardComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: "notes",
+        component: NoteComponent
+      },
+      { path: "reminder", component: ReminderComponent },
+      { path: "trash", component: TrashComponent },
+      { path: "archieve", component: ArchieveComponent }
+    ]
   },
   { path: "forgotpassword", component: ForgotpasswordComponent },
   {
     path: "resetpassword/:token",
     component: ResetpasswordComponent
-  }
+  },
+  {
+    path: "labels",
+    component: LabelComponent
+  },
+  
 ];
 
 @NgModule({

@@ -12,9 +12,11 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-  border-inline-color: black;
   background-color: whitesmoke;
-  width: 200px;
+  width: 20%;
+}
+.mat-sidenav-content {
+  height: 100vh;
 }
 .menuicon {
   margin-right: $margin-right-leftside;
@@ -61,4 +63,8 @@ mat-sidenav {
 }
 ::ng-deep .mat-form-field-underline {
   display: none;
+}
+
+.sidenavnotes a {
+  text-decoration: none;
 }

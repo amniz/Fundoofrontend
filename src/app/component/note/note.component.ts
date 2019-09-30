@@ -3,7 +3,7 @@ import { NoteService } from "src/app/note.service";
 import { Expansion } from "@angular/compiler";
 import { MatDialog } from "@angular/material";
 import { MydialogueComponent } from "../mydialogue/mydialogue.component";
-import { NoteDetails} from "../../model/note-details"
+import { NoteDetails } from "../../model/note-details";
 @Component({
   selector: "app-note",
   templateUrl: "./note.component.html",
@@ -12,7 +12,7 @@ import { NoteDetails} from "../../model/note-details"
 export class NoteComponent implements OnInit {
   myNote: any = [];
   titletoggle: boolean = false;
-  expansion = true;
+
   constructor(private noteservice: NoteService, public dialog: MatDialog) {}
 
   ngOnInit() {
@@ -50,16 +50,16 @@ export class NoteComponent implements OnInit {
   }
 
   titlechange(note) {}
-  myexpand() {
-    this.expansion = !this.expansion;
-    console.log("expand", this.expansion);
-  }
-  mycollapse() {
-    if (this.expansion == false) {
-      this.expansion = !this.expansion;
-    }
-  }
+
   opendialog(id) {
-    this.dialog.open(MydialogueComponent,{data:this.myNote[id]});
+    console.log("on dialog", id);
+
+    for (let i = 0; i < this.myNote.length; i++) {
+      console.log(this.myNote[i].id);
+      if (this.myNote[i].id == id) {
+        console.log("after", this.myNote[i]);
+        this.dialog.open(MydialogueComponent, { data: this.myNote[i] });
+      }
+    }
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NoteService } from "src/app/note.service";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-dashboard",
@@ -8,10 +8,20 @@ import { Router } from "@angular/router";
   styleUrls: ["./dashboard.component.scss"]
 })
 export class DashboardComponent implements OnInit {
-  opened = false;
+  opened = true;
   profileview = false;
   image;
-  constructor(private noteservice: NoteService, private router: Router) {
+  myVar;
+  currentdashboard = "notes";
+  routes = [
+    { linkName: "reminder", url: "reminder" },
+    { linkName: "notes", url: "notes" }
+  ];
+  constructor(
+    private noteservice: NoteService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.profilepicgett();
   }
 
@@ -29,10 +39,24 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.myVar = "";
+  }
   logout() {
     localStorage.removeItem("token");
     this.noteservice.logout();
     this.router.navigate([""]);
+  }
+  notes() {
+    this.router.navigate(["notes"], { relativeTo: this.route });
+  }
+  trash() {
+    this.router.navigate(["trash"], { relativeTo: this.route });
+  }
+  reminder() {
+    this.router.navigate(["reminder"], { relativeTo: this.route });
+  }
+  archieve() {
+    this.router.navigate(["archieve"], { relativeTo: this.route });
   }
 }

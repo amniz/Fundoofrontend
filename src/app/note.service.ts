@@ -38,6 +38,25 @@ export class NoteService {
   changecolor(id, data): Observable<any> {
     return this.http.put("http://127.0.0.1:8000/Note/" + id, data);
   }
+  addnote(data): Observable<any> {
+    return this.http.post("http://127.0.0.1:8000/Note", data);
+  }
+  getreminder(): Observable<any> {
+    return this.http.get("http://127.0.0.1:8000/reminder");
+  }
+
+  getTrash(): Observable<any> {
+    return this.http.get("http://127.0.0.1:8000/trash");
+  }
+  getArchieve(): Observable<any> {
+    return this.http.get("http://127.0.0.1:8000/archieve");
+  }
+  getlabels(): Observable<any> {
+    return this.http.get("http://127.0.0.1:8000/labels");
+  }
+  getlabelnote(data): Observable<any> {
+    return this.http.post("http://127.0.0.1:8000/getlabel", data);
+  }
   // profileimage(): Observable<any> {
   //   return this.http.post("http://127.0.0.1:8000/upload");
   // }
