@@ -38,6 +38,7 @@ import { TrashComponent } from "./component/trash/trash.component";
 import { ArchieveComponent } from "./component/archieve/archieve.component";
 import { LabelComponent } from "./component/label/label.component";
 import { MatDividerModule } from "@angular/material/divider";
+import { LabelcontentComponent } from './component/labelcontent/labelcontent.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { MatDividerModule } from "@angular/material/divider";
     ExpansionboxComponent,
     TrashComponent,
     ArchieveComponent,
-    LabelComponent
+    LabelComponent,
+    LabelcontentComponent
   ],
   entryComponents: [MydialogueComponent],
   imports: [

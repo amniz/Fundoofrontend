@@ -56,7 +56,7 @@
       <mat-icon>add_alert</mat-icon>
       <button mat-button (click)="reminder()">Reminders</button>
     </div>
-    <app-label></app-label>
+    <app-label (labelname)="labelss = $event" (click)="mylabel()"></app-label>
     <div>
       <button mat-button (click)="trash()">Trash</button>
     </div>

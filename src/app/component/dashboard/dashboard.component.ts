@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
   profileview = false;
   image;
   myVar;
+  public labelss;
   currentdashboard = "notes";
   routes = [
     { linkName: "reminder", url: "reminder" },
@@ -58,5 +59,12 @@ export class DashboardComponent implements OnInit {
   }
   archieve() {
     this.router.navigate(["archieve"], { relativeTo: this.route });
+  }
+  mylabel() {
+    console.log("inside my label");
+    this.router.navigate(["labels", this.labelss], {
+      relativeTo: this.route
+    });
+    console.log("kooi", this.labelss);
   }
 }

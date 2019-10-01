@@ -11,7 +11,8 @@ import { ReminderComponent } from "./component/reminder/reminder.component";
 import { TrashComponent } from "./component/trash/trash.component";
 import { ArchieveComponent } from "./component/archieve/archieve.component";
 import { LabelComponent } from "./component/label/label.component";
-import { NoteComponent } from './component/note/note.component';
+import { NoteComponent } from "./component/note/note.component";
+import { LabelcontentComponent } from "./component/labelcontent/labelcontent.component";
 const routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "register", component: RegisterComponent },
@@ -20,6 +21,12 @@ const routes: Routes = [
     component: DashboardComponent,
     canActivate: [AuthGuard],
     children: [
+      {
+        path: "labels/:name",
+        component: LabelcontentComponent,
+        pathMatch: "full"
+      },
+      { path: "", redirectTo: "notes", pathMatch: "full" },
       {
         path: "notes",
         component: NoteComponent
@@ -33,12 +40,11 @@ const routes: Routes = [
   {
     path: "resetpassword/:token",
     component: ResetpasswordComponent
-  },
-  {
-    path: "labels",
-    component: LabelComponent
-  },
-  
+  }
+  // {
+  //   path: "labels/:name",
+  //   component: LabelcontentComponent
+  // }
 ];
 
 @NgModule({
