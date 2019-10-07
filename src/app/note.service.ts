@@ -57,6 +57,21 @@ export class NoteService {
   getlabelnote(data): Observable<any> {
     return this.http.post("http://127.0.0.1:8000/getlabel", data);
   }
+  getUserDetails(data): Observable<any> {
+    return this.http.post("http://127.0.0.1:8000/userdetails", data);
+  }
+  deleteCollaborator(data): Observable<any> {
+    return this.http.post("http://127.0.0.1:8000/deletecollaborator", data);
+  }
+  setCollaborator(data, id): Observable<any> {
+    return this.http.put("http://127.0.0.1:8000/Note/" + id, data);
+  }
+  putNotes(data, id): Observable<any> {
+    return this.http.put("http://127.0.0.1:8000/Note/" + id, data);
+  }
+  deleteNote(data): Observable<any> {
+    return this.http.delete("http://127.0.0.1:8000/Note", data);
+  }
   // profileimage(): Observable<any> {
   //   return this.http.post("http://127.0.0.1:8000/upload");
   // }

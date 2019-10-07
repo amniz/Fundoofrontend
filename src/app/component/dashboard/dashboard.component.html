@@ -46,25 +46,29 @@
   </mat-menu>
 </mat-toolbar>
 <mat-divider></mat-divider>
+
 <mat-sidenav-container>
   <mat-sidenav mode="side" [(opened)]="opened">
     <div class="sidenavnotes">
       <mat-icon>add_alert</mat-icon>
       <button mat-button (click)="notes()">Notes</button>
-    </div>
-    <div>
-      <mat-icon>add_alert</mat-icon>
-      <button mat-button (click)="reminder()">Reminders</button>
-    </div>
-    <app-label (labelname)="labelss = $event" (click)="mylabel()"></app-label>
-    <div>
-      <button mat-button (click)="trash()">Trash</button>
-    </div>
-    <div>
-      <button mat-button (click)="archieve()">Archieve</button>
+
+      <div>
+        <mat-icon>add_alert</mat-icon>
+        <button mat-button (click)="reminder()">Reminders</button>
+      </div>
+      <app-label (labelname)="labelss = $event" (click)="mylabel()"></app-label>
+      <button mat-button (click)="editLabel()">Edit Label</button>
+      <div>
+        <button mat-button (click)="trash()">Trash</button>
+      </div>
+      <div>
+        <button mat-button (click)="archieve()">Archieve</button>
+      </div>
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
+    <app-expansionbox></app-expansionbox>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

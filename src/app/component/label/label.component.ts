@@ -33,7 +33,7 @@ export class LabelComponent implements OnInit {
   getLabelName(data) {
     this.labelname1 = data;
     this.labelname.emit(this.labelname1);
-    this.router.navigate(["labels/:data"]);
+    // this.router.navigate(["labels/:data"]);
   }
   // getlabeldetails(label) {
   //   this.router.navigate(["/labels", label]);

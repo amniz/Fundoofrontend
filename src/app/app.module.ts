@@ -38,7 +38,11 @@ import { TrashComponent } from "./component/trash/trash.component";
 import { ArchieveComponent } from "./component/archieve/archieve.component";
 import { LabelComponent } from "./component/label/label.component";
 import { MatDividerModule } from "@angular/material/divider";
-import { LabelcontentComponent } from './component/labelcontent/labelcontent.component';
+import { LabelcontentComponent } from "./component/labelcontent/labelcontent.component";
+import { CollaboratordialogComponent } from "./component/collaboratordialog/collaboratordialog.component";
+import { LabeleditdialogComponent } from "./component/labeleditdialog/labeleditdialog.component";
+import { AngularSvgIconModule } from "angular-svg-icon";
+
 
 @NgModule({
   declarations: [
@@ -55,9 +59,16 @@ import { LabelcontentComponent } from './component/labelcontent/labelcontent.com
     TrashComponent,
     ArchieveComponent,
     LabelComponent,
-    LabelcontentComponent
+    LabelcontentComponent,
+    CollaboratordialogComponent,
+    LabeleditdialogComponent,
+   
   ],
-  entryComponents: [MydialogueComponent],
+  entryComponents: [
+    MydialogueComponent,
+    CollaboratordialogComponent,
+    LabeleditdialogComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -79,7 +90,8 @@ import { LabelcontentComponent } from './component/labelcontent/labelcontent.com
     MatMenuModule,
     MatCardModule,
     MatDialogModule,
-    MatExpansionModule
+    MatExpansionModule,
+    AngularSvgIconModule
   ],
   providers: [NoteService, AuthGuard],
   bootstrap: [AppComponent]

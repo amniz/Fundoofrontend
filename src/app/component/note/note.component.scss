@@ -1,17 +1,60 @@
-.dot {
+%notecolorproperty {
   height: 25px;
   width: 25px;
-  background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
 }
+
 .dot1 {
-  height: 25px;
-  width: 25px;
-  background-color: blue;
-  border-radius: 50%;
-  display: inline-block;
+  @extend %notecolorproperty;
+  background-color: #ffffff;
 }
+.dot2 {
+  @extend %notecolorproperty;
+}
+.dot3 {
+  @extend %notecolorproperty;
+  background-color: #ff9933;
+}
+
+.dot4 {
+  @extend %notecolorproperty;
+  background-color: #ffff66;
+}
+
+.dot5 {
+  @extend %notecolorproperty;
+  background-color: #b2ff66;
+}
+.dot6 {
+  @extend %notecolorproperty;
+  background-color: #99ffcc;
+}
+.dot7 {
+  @extend %notecolorproperty;
+  background-color: #ccffff;
+}
+.dot8 {
+  @extend %notecolorproperty;
+  background-color: #9999ff;
+}
+.dot9 {
+  @extend %notecolorproperty;
+  background-color: #cc99ff;
+}
+.dot10 {
+  @extend %notecolorproperty;
+  background-color: #ebc1dd;
+}
+.dot11 {
+  @extend %notecolorproperty;
+  background-color: #e2c893;
+}
+.dot12 {
+  @extend %notecolorproperty;
+  background-color: #f0eff0;
+}
+
 .mat-card {
   width: 15%;
   border-radius: 5%;

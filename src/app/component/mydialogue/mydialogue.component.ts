@@ -12,6 +12,6 @@ export class MydialogueComponent implements OnInit {
 
   ngOnInit() {}
   addNew() {
-    console.log(this.data);
+   
   }
 }

@@ -2,17 +2,21 @@ $margin-left-leftside: -60px;
 $margin-right-leftside: 0px;
 $margin-right-rightside: 10px;
 $margin-left-rightside: 0px;
+%curveybutton {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
 mat-toolbar {
   height: 7%;
-  border-bottom-color: 6px solid red;
+  background-color: white;
 }
 mat-sidenav-container {
   height: 93%;
-  background-color: whitesmoke;
+  background-color: white;
 }
 
 mat-sidenav {
-  background-color: whitesmoke;
+  background-color: white;
   width: 20%;
 }
 .mat-sidenav-content {
@@ -34,6 +38,7 @@ mat-sidenav {
 .searchtextbox {
   background-color: whitesmoke;
   width: 40%;
+  height: 1%;
 }
 .searchtextbox input matInput {
   background-color: whitesmoke;
@@ -65,6 +70,16 @@ mat-sidenav {
   display: none;
 }
 
-.sidenavnotes a {
-  text-decoration: none;
+.sidenavnotes {
+  a {
+    text-decoration: none;
+  }
+  button {
+    @extend %curveybutton;
+  }
+}
+.sidenavbar {
+  button {
+    @extend %curveybutton;
+  }
 }

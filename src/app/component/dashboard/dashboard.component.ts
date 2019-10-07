@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { NoteService } from "src/app/note.service";
 import { Router, ActivatedRoute } from "@angular/router";
-
+import { MatDialog } from "@angular/material";
+import { MydialogueComponent } from "../mydialogue/mydialogue.component";
+import {LabeleditdialogComponent} from "../labeleditdialog/labeleditdialog.component"
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
@@ -21,7 +23,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     private noteservice: NoteService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialog:MatDialog
   ) {
     this.profilepicgett();
   }
@@ -61,10 +64,13 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(["archieve"], { relativeTo: this.route });
   }
   mylabel() {
-    console.log("inside my label");
+   
     this.router.navigate(["labels", this.labelss], {
       relativeTo: this.route
     });
     console.log("kooi", this.labelss);
+  }
+  editLabel() {
+    this.dialog.open(LabeleditdialogComponent)
   }
 }
