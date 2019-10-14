@@ -3,7 +3,8 @@ import { NoteService } from "src/app/note.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { MatDialog } from "@angular/material";
 import { MydialogueComponent } from "../mydialogue/mydialogue.component";
-import {LabeleditdialogComponent} from "../labeleditdialog/labeleditdialog.component"
+import { LabeleditdialogComponent } from "../labeleditdialog/labeleditdialog.component";
+import { HttpClient } from "@angular/common/http";
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
@@ -12,10 +13,15 @@ import {LabeleditdialogComponent} from "../labeleditdialog/labeleditdialog.compo
 export class DashboardComponent implements OnInit {
   opened = true;
   profileview = false;
+  name = "";
   image;
   myVar;
   public labelss;
   currentdashboard = "notes";
+  dialogprofile = false;
+  public parentViewOption: boolean = true;
+  fxlay;
+  fxalign;
   routes = [
     { linkName: "reminder", url: "reminder" },
     { linkName: "notes", url: "notes" }
@@ -24,7 +30,8 @@ export class DashboardComponent implements OnInit {
     private noteservice: NoteService,
     private router: Router,
     private route: ActivatedRoute,
-    private dialog:MatDialog
+    private dialog: MatDialog,
+    private http: HttpClient
   ) {
     this.profilepicgett();
   }
@@ -33,8 +40,11 @@ export class DashboardComponent implements OnInit {
     this.noteservice.getimage().subscribe(
       response => {
         console.log(response["id"]);
-        this.image = response["id"];
+        this.image = response.data["id"];
+        this.name = response.data["name"];
         console.log("image", this.image);
+        console.log("klhy", this.name);
+
         // alert("profile picture uploaded");
       },
       error => {
@@ -64,13 +74,35 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(["archieve"], { relativeTo: this.route });
   }
   mylabel() {
-   
     this.router.navigate(["labels", this.labelss], {
       relativeTo: this.route
     });
     console.log("kooi", this.labelss);
   }
   editLabel() {
-    this.dialog.open(LabeleditdialogComponent)
+    this.dialog.open(LabeleditdialogComponent);
+  }
+  myclick() {
+    if (this.parentViewOption) {
+      this.fxlay = "row";
+      this.noteservice.changeview(this.fxlay);
+    } else {
+      this.fxlay = "column";
+      this.noteservice.changeview(this.fxlay);
+    }
+  }
+  onFileChanged(event) {
+    const selectedFile = event.target.files[0];
+    console.log("de", selectedFile);
+    const uploadData = new FormData();
+    uploadData.append("image", selectedFile, selectedFile.name);
+    this.noteservice.uploadimag(uploadData).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }

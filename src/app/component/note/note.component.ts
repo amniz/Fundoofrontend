@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { NoteService } from "src/app/note.service";
 import { Expansion } from "@angular/compiler";
 import { MatDialog } from "@angular/material";
@@ -16,12 +16,24 @@ export class NoteComponent implements OnInit {
   collaboratedNotes: any = [];
   titletoggle: boolean = false;
   backgroundcolorNote;
-
+  notewidth;
+  flexview: string;
+  fxalign: string;
   constructor(private noteservice: NoteService, public dialog: MatDialog) {}
 
   ngOnInit() {
     myNote: {
       color: "";
+      this.noteservice.currentview.subscribe(message => {
+        this.flexview = message;
+        if (message == "row") {
+          this.fxalign = "space-around end";
+          this.notewidth = "25px";
+        } else {
+          this.fxalign = "space-around stretch";
+          this.notewidth = "50px";
+        }
+      });
     }
     this.getnotes();
     this.backgroundcolorNote = "";
@@ -100,9 +112,9 @@ export class NoteComponent implements OnInit {
 
   deleteNote(id) {
     let deldata = {
-      id: id
+      is_trash: "True"
     };
-    this.noteservice.deleteNote(deldata).subscribe(
+    this.noteservice.putNotes(deldata, id).subscribe(
       response => {
         console.log(response);
       },

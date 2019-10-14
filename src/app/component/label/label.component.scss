@@ -1,0 +1,13 @@
+%curveybutton {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+button {
+  @extend %curveybutton;
+  width: 100%;
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: bold;
+  img {
+    float: left;
+  }
+}

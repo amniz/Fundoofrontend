@@ -1,10 +1,5 @@
 <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
-  <mat-icon
-    class="menuicon"
-    aria-hidden="false"
-    aria-label="Example home icon"
-    (click)="opened = !opened"
-    >menu
+  <mat-icon class="menuicon" aria-hidden="false" aria-label="Example home icon" (click)="opened = !opened">menu
   </mat-icon>
   <div class="toolbarimage">
     <img src="../../../assets/image/download.png" height="42" width="42" />
@@ -20,28 +15,51 @@
   </mat-form-field>
 
   <mat-icon class="refreshbutton" matSuffix>refresh</mat-icon>
-  <mat-icon class="view_agenda" matSuffix>view_agenda</mat-icon>
+  <div class="view_agenda" (click)="parentViewOption = !parentViewOption" matSuffix (click)="myclick()">
+    <img *ngIf="parentViewOption" src="../../../assets/image/view_agenda-24px.svg">
+    <img *ngIf="!parentViewOption" src="../../../assets/image/widgets-24px.svg">
+  </div>
   <mat-icon class="settingicon" matSuffix>settings_applications</mat-icon>
   <mat-icon class="appicon" matSuffix>apps</mat-icon>
-  <div class="profileimage" [matMenuTriggerFor]="menu">
-    <img
-      src="https://fundoo-image.s3.ap-south-1.amazonaws.com/{{ image }}"
-      height="40"
-      width="40"
-    />
+  <div class="profileimage" [matMenuTriggerFor]="profilemenu">
+    <img src="../../../assets/image/images.jpeg" height="40" width="40" />
   </div>
-  <mat-menu #menu="matMenu" xPosition="before" yPosition="below" class="mat">
+  <!-- <mat-menu
+    #profilemenu="matMenu"
+    xPosition="before"
+    yPosition="below"
+    class="mat"
+  >
     <div class="profile menu">
-      <span>
+     <div class="row">
+       <div class=column>
         <div class="profile picture" height="100%" width="50%">
           <img
             src="https://fundoo-image.s3.ap-south-1.amazonaws.com/{{ image }}"
           />
         </div>
-        <div>
+        </div>
+        <div class=column>
           <button (click)="logout()" mat-button>logout</button>
         </div>
       </span>
+    </div>
+    </div>
+  </mat-menu> -->
+  <mat-menu #profilemenu="matMenu" xPosition="before" yPosition="below" width="500%" class="profilematmenu">
+    <div class="row">
+      <div class="column1" (click)="fileInput.click()">
+        <img src="../../../assets/image/images.jpeg" height="90" width="90" />
+
+        <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput />
+        <!-- <button (click)="fileInput.click()" width="150px">change</button> -->
+      </div>
+      <div class="column2">
+        <p>{{ name }}</p>
+        <!-- <p>xdsjfkbgmdflbmdflb,mdfl</p> -->
+
+        <button (click)="logout()" mat-button>logout</button>
+      </div>
     </div>
   </mat-menu>
 </mat-toolbar>
@@ -49,21 +67,34 @@
 
 <mat-sidenav-container>
   <mat-sidenav mode="side" [(opened)]="opened">
-    <div class="sidenavnotes">
-      <mat-icon>add_alert</mat-icon>
-      <button mat-button (click)="notes()">Notes</button>
+    <div class="sidenav">
+
+      <button class="button" mat-button (click)="notes()">
+        <img src="../../../assets/image/label-24px.svg">Notes
+      </button>
 
       <div>
-        <mat-icon>add_alert</mat-icon>
-        <button mat-button (click)="reminder()">Reminders</button>
+
+        <button mat-button (click)="reminder()">
+          <img src="../../../assets/image/notifications-24px.svg">Reminders
+        </button>
       </div>
-      <app-label (labelname)="labelss = $event" (click)="mylabel()"></app-label>
-      <button mat-button (click)="editLabel()">Edit Label</button>
-      <div>
-        <button mat-button (click)="trash()">Trash</button>
+      <div class="labelborder">
+        <p>Labels</p>
+        <app-label (labelname)="labelss = $event" (click)="mylabel()"></app-label>
+
+        <button mat-button (click)="editLabel()">
+          <img src="../../../assets/image/edit-24px.svg">
+          Edit Label</button>
       </div>
       <div>
-        <button mat-button (click)="archieve()">Archieve</button>
+        <button mat-button (click)="trash()">
+          <img src="../../../assets/image/delete-24px.svg"> Trash</button>
+      </div>
+      <div>
+        <button mat-button (click)="archieve()">
+          <img src="../../../assets/image/archive-24px.svg">
+          Archieve</button>
       </div>
     </div>
   </mat-sidenav>

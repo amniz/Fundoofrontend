@@ -10,14 +10,19 @@
     ></svg-icon> -->
 
     <mat-form-field appearence="leagacy" floatLabel="never">
+      <mat-icon matPrefix>close</mat-icon>
       <mat-label>Create new label</mat-label>
-      <input matInput />
+      <input matInput [(ngModel)]="newLabelName" />
+      <mat-icon matSuffix (click)="addNewLabel()">done</mat-icon>
     </mat-form-field>
   </div>
   <br />
   <div *ngFor="let label of labels">
     <mat-form-field appearence="leagacy" floatLabel="never">
-      <input matInput value="{{ label }}" />
+      <mat-icon matPrefix>close</mat-icon>
+      <input matInput [value]="label" (input)="labell = $event.target.value" />
+      <mat-icon matSuffix (click)="updatelabel(label, value)">done</mat-icon>
     </mat-form-field>
   </div>
+  <button mat-button>Done</button>
 </div>

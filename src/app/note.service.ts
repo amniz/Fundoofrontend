@@ -1,11 +1,19 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 @Injectable({
   providedIn: "root"
 })
 export class NoteService {
+  private viewchange = new BehaviorSubject("");
+  currentview = this.viewchange.asObservable();
+
   constructor(private http: HttpClient) {}
+
+  changeview(message: string) {
+    this.viewchange.next(message);
+  }
   loginUser(data): Observable<any> {
     return this.http.post("http://127.0.0.1:8000", data);
   }
@@ -70,9 +78,15 @@ export class NoteService {
     return this.http.put("http://127.0.0.1:8000/Note/" + id, data);
   }
   deleteNote(data): Observable<any> {
-    return this.http.delete("http://127.0.0.1:8000/Note", data);
+    return this.http.delete("http://127.0.0.1:8000/Note/" + data);
   }
-  // profileimage(): Observable<any> {
-  //   return this.http.post("http://127.0.0.1:8000/upload");
-  // }
+  putlabel(data): Observable<any> {
+    return this.http.put("http://127.0.0.1:8000/labels", data);
+  }
+  uploadimag(data): Observable<any> {
+    return this.http.post("http://127.0.0.1:8000/upload", data);
+  }
+  addLabel(data): Observable<any> {
+    return this.http.post("http://127.0.0.1:8000/labels", data);
+  }
 }

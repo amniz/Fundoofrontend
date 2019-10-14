@@ -1,18 +1,14 @@
-<div fxLayout="row" fxLayoutAlign="space-around end" style="padding-top: 76px;">
-  <mat-card
-    class="mat-class"
-    *ngFor="let mynote of myNote"
-    [ngStyle]="{ 'background-color': mynote.color }"
-  >
-    <div>
-      <mat-card-header (click)="opendialog(mynote.id)"
-        >{{ mynote.title }}
-      </mat-card-header>
-      <mat-card-content (click)="opendialog(mynote.id)">{{
-        mynote.note
-      }}</mat-card-content>
-      <mat-card-content></mat-card-content>
-    </div>
+<div class="maindiv" [fxLayout]="flexview" [fxLayoutAlign]="fxalign" style="padding-top: 76px;">
+  <mat-card class="mat-class" *ngFor="let mynote of myNote" [ngStyle]="{ 'background-color': mynote.color }">
+    <mat-card-header class="mat-card-header">
+      <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="5" [value]="mynote.title" (click)="opendialog(mynote.id)"></textarea>
+    </mat-card-header>
+    <mat-card-content (click)="opendialog(mynote.id)"><textarea matInput cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" [value]="mynote.note"
+        (click)="opendialog(mynote.id)"></textarea></mat-card-content>
+    <mat-card-content></mat-card-content>
+
     <mat-card-footer fxLayout="row" fxLayoutAlign="space-around end">
       <mat-icon [matMenuTriggerFor]="reminderMenu">add_alert</mat-icon>
       <mat-icon (click)="collaboratorDialog(mynote.id)">person_add</mat-icon>
@@ -37,22 +33,12 @@
       <span (click)="backgroundcolor(mynote.id, '#9999FF')" class="dot8"></span>
       <br />
       <span (click)="backgroundcolor(mynote.id, '#CC99FF')" class="dot9"></span>
-      <span
-        (click)="backgroundcolor(mynote.id, '#EBC1DD')"
-        class="dot10"
-      ></span>
-      <span
-        (click)="backgroundcolor(mynote.id, '#E2C893')"
-        class="dot11"
-      ></span>
-      <span
-        (click)="backgroundcolor(mynote.id, '#F0EFF0')"
-        class="dot12"
-      ></span>
+      <span (click)="backgroundcolor(mynote.id, '#EBC1DD')" class="dot10"></span>
+      <span (click)="backgroundcolor(mynote.id, '#E2C893')" class="dot11"></span>
+      <span (click)="backgroundcolor(mynote.id, '#F0EFF0')" class="dot12"></span>
     </mat-menu>
     <mat-menu #moremenu xPoition="before" yPosition="below">
-      <button mat-button (click)="deleteNote(mynote.id)">Delete note</button
-      ><br />
+      <button mat-button (click)="deleteNote(mynote.id)">Delete note</button><br />
       <button mat-button>Change labels</button><br />
       <button mat-button>Add drawing</button><br />
       <button mat-button>Make a copy</button><br />

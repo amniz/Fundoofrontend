@@ -1,10 +1,10 @@
 <mat-form-field floatLabel="never">
-  <input matInput value="{{ data.title }}" />
+  <input matInput [(ngModel)]="data.title" />
 </mat-form-field>
 
 <mat-dialog-content>
   <mat-form-field floatLabel="never">
-    <input matInput value="{{ data.note }}" />
+    <input matInput [(ngModel)]="data.note" />
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
@@ -15,7 +15,7 @@
     <mat-icon>image</mat-icon>
     <mat-icon>archive</mat-icon>
     <mat-icon [matMenuTriggerFor]="moremenu">more_vert</mat-icon>
-    <button mat-button [mat-dialog-close]="true" (click)="addNew()">
+    <button mat-button [mat-dialog-close]="true" (click)="updateNote()">
       close
     </button>
   </mat-card-footer>
